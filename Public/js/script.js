@@ -1,23 +1,27 @@
 const menuToggle = document.querySelector('.menuToggle')
 const navigation= document.querySelector('.navigation')
 const list = document.querySelectorAll('.list')
+const body = document.body
+body.addEventListener(`onload`,activelink())
+
 
 
 menuToggle.onclick=()=>{
         navigation.classList.toggle('open')
 }
 
-function activeLink(){
-    list.forEach((item)=>
-        item.classList.remove('active')
-    )
-        this.classList.add('active')
+
+function activelink(){
+    list.forEach((item)=>{      
+       if(window.location.pathname==item.getElementsByTagName('a')[0].getAttribute(`href`)) item.classList.add(`active`)
+    })
     
 }
 
-list.forEach((item)=>{
-    item.addEventListener('click',activeLink)
-})
+
+
+
+
 
 
 

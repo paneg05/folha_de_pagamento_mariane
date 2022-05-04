@@ -16,14 +16,19 @@ const connection = require('./database/database')
 
 //configurando banco de dados
     connection.authenticate().then(()=>{
-        console.log(`conexão com banco de dados efetuada com sucesso!`)
+        console.log(`\nconexão com banco de dados efetuada com sucesso!\n`)
     })
 
 // rotas
-    server.get(`/`,(req,res)=>{
-        res.render(`index`)
-    })
-
+    //rota principal
+        server.get(`/`,(req,res)=>{
+            res.render(`index`)
+        })
+    
+    //setings
+        server.get(`/setings`,(req,res)=>{
+            res.render(`setings`)
+        })
 
 server.listen(port,(err)=>{
     if(err) console.log(`erro ao iniciar o servidor! erro: ${err}`)
